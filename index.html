@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rankings</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <h1 style="text-align: center;">Rankings</h1>
+
+    <!-- Startup Buttons -->
+    <div id="startOptions">
+      <button id="manualBtn" onclick="startManual()">Input Data Manually</button>
+      <input type="file" id="importInput" accept=".xlsx" style="display: none;" />
+      <button id="uploadBtn" onclick="document.getElementById('importInput').click()">Upload Excel Sheet</button>
+    </div>
+
+    <!-- Manual Setup Section -->
+    <div id="setupSection" style="display: none;">
+      <form id="rankingCriteriaForm">
+      <label for="rankingCriteriaCount">Number of Ranking Criteria:</label>
+      <input type="number" id="rankingCriteriaCount" min="1" required />
+      <button onclick="generateRankingCriteriaInputs()">Set Criteria</button>
+      </form>
+    </div>
+
+    <!-- Manual Ranking Form -->
+    <form id="rankingForm" style="display: none;">
+      <h2>Enter Name and Rankings</h2>
+      <input type="text" id="name" placeholder="Name" required />
+      <div id="rankingsContainer"></div>
+      <button type="button" onclick="handleAddPlayer()">Add</button>
+    </form>
+
+    <div id="weightInputsContainer" style="display: none;">
+      <h3>Set Weights for Each Criterion</h3>
+      <div id="weightsForm"></div>
+      <button onclick="applyWeights()">Apply Weights</button>
+    </div>
+
+    <div id="rankedResults" style="display: none;">
+      <h2>Ranked Results</h2>
+      <ul id="resultsList"></ul>
+    </div>
+
+    <button id="exportBtn" onclick="exportToExcel()" style="display: none;">Export to Excel</button>
+  </div>
+
+</body>
+</html>
