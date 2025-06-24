@@ -24,4 +24,5 @@
 ### Excel Format
 See `sampleInput.xlsx`
 - Column A is reservered for player name
-- All other columns are for criteria
+- All other columns are for criteria. You can add as many criteria as you would like.
+- First row must be criteria name
